@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <iostream>
 #include <conio.h>
 using namespace std;
@@ -18,13 +17,15 @@ void dMenu()
   cout << "Masukan angka :";
 }
 
-void ascendingSort( int data[], int n)
+void ascendingSort(int data[], int n)
 {
   int temp;
-  for (int i = 1; i < n; i++) {
+  for (int i = 1; i < n; i++)
+  {
     temp = data[i];
     int j = i - 1;
-    while (j >= 0 && data[j] > temp) {
+    while (j >= 0 && data[j] > temp)
+    {
       data[j + 1] = data[j];
       j--;
     }
@@ -32,13 +33,15 @@ void ascendingSort( int data[], int n)
   }
 }
 
-void descendingSort( int data[], int n)
+void descendingSort(int data[], int n)
 {
   int temp;
-  for (int i = 1; i < n; i++) {
+  for (int i = 1; i < n; i++)
+  {
     temp = data[i];
     int j = i - 1;
-    while (j >= 0 && data[j] < temp) {
+    while (j >= 0 && data[j] < temp)
+    {
       data[j + 1] = data[j];
       j--;
     }
@@ -46,22 +49,30 @@ void descendingSort( int data[], int n)
   }
 }
 
-void sort(int data[], int n) {
+void sort(int data[], int n)
+{
   char choice;
   cout << "Pilih urutan (a untuk ascending, d untuk descending): ";
   cin >> choice;
-  if (choice == 'a') {
+  if (choice == 'a')
+  {
     ascendingSort(data, n);
-  } else if (choice == 'd') {
+  }
+  else if (choice == 'd')
+  {
     descendingSort(data, n);
-  } else {
+  }
+  else
+  {
     cout << "Pilihan tidak valid." << endl;
   }
 }
 
-void copy() {
-  for (int i = 0; i < n; i++) {
-      t[i] = data[i];
+void copy()
+{
+  for (int i = 0; i < n; i++)
+  {
+    t[i] = data[i];
   }
 }
 
@@ -75,7 +86,7 @@ void ms()
   for (int i = 0; i < n; i++)
   {
     cout << "Masukkan Data ke-" << i + 1 << ": ";
-      cin >> data[i];
+    cin >> data[i];
   }
   copy();
   cout << "Tekan sembarang tombol untuk kembali ke menu utama." << endl;
@@ -85,26 +96,45 @@ void ms()
 void md()
 {
   system("cls");
-  cout << "Data yang dimasukkan adalah: ";
-  for (int i = 0; i < n; i++) {
-    cout << t[i] << " ";
-}
-  cout << endl;
-  cout << "Tekan sembarang tombol untuk kembali ke menu utama." << endl;
+
+    if (n == 0)
+  {
+    cout << "Data belum dimasukkan." << endl;
+    getch();
+    return;
+  } else {
+    cout << "Data yang dimasukkan adalah: ";
+    for (int i = 0; i < n; i++)
+    {
+      cout << t[i] << " ";
+    }
+    cout << endl;
+    cout << "Tekan sembarang tombol untuk kembali ke menu utama." << endl;
+  }
   getch();
 }
 
 void mt()
 {
   system("cls");
-  sort(data, n);
-  cout << "Data yang telah diurutkan adalah: ";
-  for (int i = 0; i < n; i++) {
-    cout << data[i] << " ";
+  if (n == 0)
+  {
+    cout << "Data belum dimasukkan." << endl;
+    getch();
+    return;
   }
+  else
+  {
+    sort(data, n);
+    cout << "Data yang telah diurutkan adalah: ";
+    for (int i = 0; i < n; i++)
+    {
+      cout << data[i] << " ";
+    }
 
-  cout << endl;
-  cout << "Tekan sembarang tombol untuk kembali ke menu utama." << endl;
+    cout << endl;
+    cout << "Tekan sembarang tombol untuk kembali ke menu utama." << endl;
+  }
   getch();
 }
 
